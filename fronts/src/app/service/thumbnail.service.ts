@@ -3,6 +3,7 @@ import { Http, RequestOptions } from '@angular/http';
 import { Observable, Subject } from 'rxjs';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import 'rxjs/add/operator/map';
+import * as io from 'socket.io-client';
 
 import { Gender } from './../interface/gender.interface';
 
@@ -13,6 +14,9 @@ export class ThumbnailService {
     private dataStore: {
         thumbnails: Gender[]
     };
+    private url = 'http://localhost:9128/';  
+    private socket;
+
     dataThumbnail = [    
                     { id: 100, name: 'Mr. Nice' },
                     { id: 102, name: 'Narco' },
@@ -23,6 +27,11 @@ export class ThumbnailService {
         // this.dataStore = { thumbnails: [] };
         // console.log(this.dataStore);
         this.thumbnails = this._thumbnails.asObservable();
+        this.socket = io(this.url);
+        this.socket.on('updatedThumbmail', (data) => {
+            debugger
+            this._thumbnails.next(data);    
+        });
     }   
 
     getThumbnail(): Promise<Gender[]> {
@@ -43,31 +52,13 @@ export class ThumbnailService {
         return this.http
             .post('http://127.0.0.1:9128/items/add', item)
             .subscribe(data => {
-                debugger
+                // debugger
             }, error => {
                 console.log('error');
             });
     }
 
     setThumbnail(gender) {
-        switch(gender) {
-            case 'women' : 
-                this.dataStore.thumbnails = [
-                    { id: 11, name: 'Mr. Nice' },
-                    { id: 12, name: 'Narco' },
-                    { id: 13, name: 'Bombasto' },
-                ]
-            break;
-
-            case 'men' : 
-               this.dataThumbnail = [
-                    { id: 18, name: 'Dr IQ' },
-                    { id: 19, name: 'Magma' },
-                    { id: 20, name: 'Tornado' }
-                ]
-            break;
-
-        }
     }
 
     changeSources(data) {
@@ -77,6 +68,7 @@ export class ThumbnailService {
     getSources():Observable< Gender[] > {
         return this.http.get(`http://localhost:9128/getitems`)
             .map(response => {
+                
                 console.log('<<<>>>>',response.json());
                  return response.json(); //.sources as Gender[];
             })
