@@ -1,0 +1,22 @@
+<div>
+    <passenger-count
+        [items] = "objSame"    
+    >
+    </passenger-count>
+    <passenger-detail>
+
+    </passenger-detail>
+</div>
+
+<h3>Witch Passenger componrnt:</h3>
+<ul>
+  <li *ngFor="let obj of objSame">
+      <span
+        class="status"
+        [ngClass]="{'checked-in': obj.checked}"
+        
+        >
+      </span>
+      <span>{{obj.id}}</span>
+  </li>
+</ul>

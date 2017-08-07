@@ -1,0 +1,125 @@
+ul {
+    margin: 0;
+    padding: 0;
+
+    li {
+        overflow: hidden; 
+    }
+} 
+
+.header-wrapper {
+    min-height: 60px;
+    display: flex;
+    .header-cart {
+        display: flex;
+        li {
+            margin: 10px;
+            cursor: pointer;
+        }        
+    }
+}
+
+.menu-wrapper {
+    z-index: 11;
+    position: relative;
+    margin-bottom: 0;
+    background: #fafafa;
+    border-top: 1px solid #eee;
+    color: #777;
+
+    .menu-catigories {
+        display: flex;
+        li {
+            margin: 10px;
+            cursor: pointer;
+        }        
+    }
+}
+
+
+.content-wrapper {
+    height: 77vh;
+    overflow: auto;
+}
+
+.footer-wrapper {
+    padding-bottom: 40px;
+    margin-top: 20px;
+    background-color: #fff;
+    border-top: 1px solid #eee;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(#fafafa,#fff);
+    background-size: 100% 40px;
+}
+
+
+// ul li {
+//     overflow: hidden; 
+// }
+
+// .status {
+//     width: 5px;
+//     height: 5px;
+//     background: #c03992;
+//     display: block;
+//     margin: 5px 5px 0 0 ;
+//     float: left;
+//     border-radius: 50%;
+//     &.checked-in {
+//         background: #2ecc71;
+//     }
+// }
+
+
+
+
+
+
+  .selected {
+    background-color: #CFD8DC !important;
+    color: white;
+  }
+  .heroes {
+    margin: 0 0 2em 0;
+    list-style-type: none;
+    padding: 0;
+    width: 15em;
+  }
+  .heroes li {
+    cursor: pointer;
+    position: relative;
+    left: 0;
+    background-color: #EEE;
+    margin: .5em;
+    padding: .3em 0;
+    height: 1.6em;
+    border-radius: 4px;
+  }
+  .heroes li.selected:hover {
+    background-color: #BBD8DC !important;
+    color: white;
+  }
+  .heroes li:hover {
+    color: #607D8B;
+    background-color: #DDD;
+    left: .1em;
+  }
+  .heroes .text {
+    position: relative;
+    top: -3px;
+  }
+  .heroes .badge {
+    display: inline-block;
+    font-size: small;
+    color: white;
+    padding: 0.8em 0.7em 0 0.7em;
+    background-color: #607D8B;
+    line-height: 1em;
+    position: relative;
+    left: -1px;
+    top: -4px;
+    height: 1.8em;
+    margin-right: .8em;
+    border-radius: 4px 0 0 4px;
+  }
+

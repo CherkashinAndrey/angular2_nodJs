@@ -1,0 +1,63 @@
+<div>
+  <header class="header-wrapper"> 
+    <gender-link></gender-link>
+
+    <logo-img></logo-img>
+
+    <ul class ="header-cart" >
+      <li>
+          <addItem></addItem>
+      </li>
+      <li>
+        <login></login>
+      </li>
+      <li>
+        <!--<cart></cart>-->
+      </li>
+    </ul>
+  </header>
+
+  <menu class="menu-wrapper"> 
+    <ul class="menu-catigories">
+      <li>Home</li>
+      <li>Filters</li>
+      <li>Categories</li>
+    </ul>
+  </menu>
+
+  <div class="content-wrapper">
+    <content >  
+      <container></container>
+
+    <!--<div>
+      <label>name: </label>
+      <input [(ngModel)]="hero.name" placeholder="name Hero">
+    </div>-->
+
+    <!--<h1>{{title}}</h1>
+
+    <h2>My Heroes</h2>
+    <ul class="heroes">
+      <li *ngFor="let hero of heroes" 
+        [class.selected]="hero === selectedHero"
+        (click)="onSelect(hero)" >
+        <span class="badge">{{hero.id}}</span> {{hero.name}}
+      </li>
+    </ul>
+
+  <hero-detail [hero]="selectedHero"></hero-detail>-->
+
+   <!--<h1>{{title}}</h1>
+   <a routerLink="/heroes">Heroes</a>
+   <a routerLink="/man">man</a>-->
+   <router-outlet></router-outlet>
+
+<!--*********************************************************-->
+    </content>
+    </div>
+
+
+  <footer class="footer-wrapper"> footer 
+
+  </footer>
+</div>

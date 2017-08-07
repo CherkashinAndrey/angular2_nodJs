@@ -1,0 +1,16 @@
+ul {
+    margin: 0;
+    padding: 0;
+
+    li {
+        overflow: hidden; 
+    }
+} 
+
+.header-gender {
+    display: flex;
+    li {
+        margin: 10px;
+        cursor: pointer;
+    }        
+}
