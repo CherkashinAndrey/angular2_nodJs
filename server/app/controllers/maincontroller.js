@@ -1,4 +1,4 @@
-module.exports = (app) => {
+module.exports = (app, socketio) => {
 
     const   config = require('../config/auth.js'),
             utils = require('../utils/utils.js'),
@@ -96,11 +96,11 @@ module.exports = (app) => {
 
     main.getItems = (req, res) => {
         console.log('GET ITEMS-->>>');
-        Items.findAll({where: {name: '333'}})
+        // Items.findAll({where: {name: '333'}})
+        Items.findAll()
             .then(user => {
                 res.send(user);
-            });
-        
+            });      
     }
 
     main.items = (req, res) => {
@@ -124,6 +124,10 @@ module.exports = (app) => {
                 }
             
             Items.create(newRecording)
+            .then( data => {
+                console.log('DATACREATE--->>>>', data );
+            //    socketio.broadcast('updated', data)
+            })
                  .catch(res.end);
               return res.end('ok');
 

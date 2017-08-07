@@ -1,9 +1,9 @@
-module.exports = (app, passport) => {
+module.exports = (app, passport, socketio) => {
     
     const   authUtils = require('../utils/authUtils.js')(app),
             jwt = require('jsonwebtoken'),
             authController = require('../controllers/authcontroller.js')(app, passport, jwt),
-            mainController = require('../controllers/maincontroller.js')(app),
+            mainController = require('../controllers/maincontroller.js')(app, socketio),
             recordingsController = require('../controllers/recordingscontroller.js')(app),
             pdfController = require('../controllers/pdfcontroller.js')(app);
 

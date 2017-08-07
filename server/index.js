@@ -65,10 +65,6 @@ const models = require("./models");
 require('./app/config/passport/passport.js')(app, passport, models.user);
 
 
-const authRoute = require('./app/routes/auth.js')(app, passport, models.user);
-const mainRoute = require('./app/routes/main.js')(app, passport);
-
-
 //Sync Database
 models.sequelize.sync().then(function() {
     winston.info('Nice! Database looks fine')
@@ -91,6 +87,9 @@ socketio.on( 'connection', socket => {
 
     socket.on( 'message', socketMessage );
 });
+
+const authRoute = require('./app/routes/auth.js')(app, passport, models.user);
+const mainRoute = require('./app/routes/main.js')(app, passport, socketio);
 
 function socketMessage( msg ) {
     console.log('Message received');

@@ -13,7 +13,7 @@ export class ThumbnailService {
     private dataStore: {
         thumbnails: Gender[]
     };
-    dataThumbnail = [ 
+    dataThumbnail = [    
                     { id: 100, name: 'Mr. Nice' },
                     { id: 102, name: 'Narco' },
                     { id: 103, name: 'Bombasto' },

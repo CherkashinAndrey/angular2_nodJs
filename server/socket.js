@@ -20,11 +20,11 @@ socketio.on( 'connection', socket => {
     let id = socket.id;
     console.log( 'новое соединение ' + id );
 
-    socket.on( 'message', socketMessage );
-    socket.on( 'blob', socketBlob );
-    socket.on( 'close', socketClose );
-    socket.on( 'startCapture', socketStartCapture );
-    socket.on( 'stopCapture', socketStopCapture );
+   // socket.broadcast( 'ItemsUpdated', { id: 3} );
+    //socket.on( 'blob', socketBlob );
+    //socket.on( 'close', socketClose );
+    //socket.on( 'startCapture', socketStartCapture );
+    //socket.on( 'stopCapture', socketStopCapture );
 });
 
 function socketMessage( msg ) {
