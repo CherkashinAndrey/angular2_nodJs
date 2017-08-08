@@ -122,12 +122,12 @@ module.exports = (app, socketio) => {
                 sale: dataObj.sale,
                 name: dataObj.name,
                 }
-            
+            //  console.log('DATACREATE--->>>>', socketio );
             Items.create(newRecording)
             .then( data => {
-                console.log('DATACREATE--->>>>', data );
+                console.log('DATACREATE--->>>>', socketio );
             //    socketio.broadcast('updated', data)
-                  socket.broadcast.emit('updatedThumbmail', data);
+                  socketio.emit('updatedThumbmail', data);
             })
                  .catch(res.end);
               return res.end('ok');

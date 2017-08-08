@@ -27,10 +27,13 @@ export class ThumbnailService {
         // this.dataStore = { thumbnails: [] };
         // console.log(this.dataStore);
         this.thumbnails = this._thumbnails.asObservable();
+
         this.socket = io(this.url);
+        console.log('socket', this.socket);
         this.socket.on('updatedThumbmail', (data) => {
-            debugger
-            this._thumbnails.next(data);    
+            console.log();
+            // debugger
+            // this._thumbnails.next(data);    
         });
     }   
 
