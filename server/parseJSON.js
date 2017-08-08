@@ -186,7 +186,6 @@
     });
 
     document.addEventListener('load', function() {
-      debugger
       document.documentElement.style.display = 'block';
       browserPlayback.createInitialState();
       browserPlayback.play();

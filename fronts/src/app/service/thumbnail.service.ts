@@ -31,9 +31,9 @@ export class ThumbnailService {
         this.socket = io(this.url);
         console.log('socket', this.socket);
         this.socket.on('updatedThumbmail', (data) => {
-            console.log();
-            // debugger
-            // this._thumbnails.next(data);    
+            console.log(data);
+             this.changeSources([data]);
+            //  this._thumbnails.next([data]);    
         });
     }   
 
@@ -55,7 +55,6 @@ export class ThumbnailService {
         return this.http
             .post('http://127.0.0.1:9128/items/add', item)
             .subscribe(data => {
-                // debugger
             }, error => {
                 console.log('error');
             });
@@ -78,19 +77,19 @@ export class ThumbnailService {
             .catch(this.errorHandler)
     }
 
-    getAllArticlesBySourcesArr(sourcesArr) {
-        let requestsArr:any = [];
-        // sourcesArr.forEach(element => {
-        //     let requestItem = this.http
-        //         .get(ARTICLES_END_POINT + `?source=${element.id}&apiKey=${API_KEY}`)
-        //         .map(response => Object.assign(element, response.json()))
-        //         .catch(this.errorHandler);
+    // getAllArticlesBySourcesArr(sourcesArr) {
+    //     let requestsArr:any = [];
+    //     // sourcesArr.forEach(element => {
+    //     //     let requestItem = this.http
+    //     //         .get(ARTICLES_END_POINT + `?source=${element.id}&apiKey=${API_KEY}`)
+    //     //         .map(response => Object.assign(element, response.json()))
+    //     //         .catch(this.errorHandler);
 
-        //     requestsArr.push(requestItem);
-        // });
-        return Observable.forkJoin(requestsArr)
-            .map(data => {data})
-    }
+    //     //     requestsArr.push(requestItem);
+    //     // });
+    //     return Observable.forkJoin(requestsArr)
+    //         .map(data => {data})
+    // }
 
     // getArticlesBySource(source = this.basicSource):Observable< article[] > {
     //     const { API_KEY, ARTICLES_END_POINT, SOURCES_END_POINT } = this.newsApiSettings;

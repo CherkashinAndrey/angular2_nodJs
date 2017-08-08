@@ -18,7 +18,6 @@ import * as io from 'socket.io-client';
 
 export class ThumbnailComponent {
     thumbnails = [];
-    channelArticles: Gender[]
     sourcesSubscribe:any;
     // private url = 'http://localhost:9128/';  
     // private socket;
@@ -27,28 +26,30 @@ export class ThumbnailComponent {
                  private thumbnailService: ThumbnailService) {
         this.sourcesSubscribe = this.thumbnailService.thumbnails.subscribe(data => {
             console.log(data);
+            console.log('this.thumbnails',this.thumbnails);
             this.thumbnails = data;
+            // this.thumbnails = data;
            // this.getAllArticlesBySourcesArr(data)
         })
 
     }
 
-    getAllArticlesBySourcesArr(sourcesArr) {
-        this.thumbnailService.getAllArticlesBySourcesArr(sourcesArr)
-        .subscribe(data => {
-            // let itteratedData = Array.from(data);
-            let articleArr = [];
-            // for ( let item of itteratedData as any) {
-            //     item.articles.forEach(element => {
-            //         element.name = item.name;
-            //         element.sourceUrl = item.url;
-            //         element.sourceLogosUrl = item.urlsToLogos;
-            //         articleArr.push(element)
-            //     });
-            // }
-            // this.channelArticles = articleArr;
-        })
-    }
+    // getAllArticlesBySourcesArr(sourcesArr) {
+    //     this.thumbnailService.getAllArticlesBySourcesArr(sourcesArr)
+    //     .subscribe(data => {
+    //         // let itteratedData = Array.from(data);
+    //         let articleArr = [];
+    //         // for ( let item of itteratedData as any) {
+    //         //     item.articles.forEach(element => {
+    //         //         element.name = item.name;
+    //         //         element.sourceUrl = item.url;
+    //         //         element.sourceLogosUrl = item.urlsToLogos;
+    //         //         articleArr.push(element)
+    //         //     });
+    //         // }
+    //         // this.channelArticles = articleArr;
+    //     })
+    // }
 
     getGender(): void {
         this.thumbnailService.getSources()

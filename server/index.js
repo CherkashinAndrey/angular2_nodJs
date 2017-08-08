@@ -85,15 +85,15 @@ socketio.on( 'connection', socket => {
     let id = socket.id;
     console.log( 'новое соединение ' + id );
 
-    socket.on( 'message', socketMessage );
+    // socket.on( 'message', socketMessage );
 });
 
 const authRoute = require('./app/routes/auth.js')(app, passport, models.user);
 const mainRoute = require('./app/routes/main.js')(app, passport, socketio);
 
-function socketMessage( msg ) {
-    console.log('Message received');
-}
+// function socketMessage( msg ) {
+//     console.log('Message received');
+// }
 
 /*socketio.on( 'connection', socket => {
     let client;
