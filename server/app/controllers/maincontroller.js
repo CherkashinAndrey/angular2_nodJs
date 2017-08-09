@@ -128,6 +128,7 @@ module.exports = (app, socketio) => {
                 console.log('DATACREATE--->>>>', socketio );
             //    socketio.broadcast('updated', data)
                   socketio.emit('updatedThumbmail', data);
+                  socketio.emit('testMessage', "TESTY!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             })
                  .catch(res.end);
               return res.end('ok');

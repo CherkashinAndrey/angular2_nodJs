@@ -1,5 +1,6 @@
 # Angular2 JS
 fronts/node_modules
 server/node_modules
-server/config/*
+server/config/config.json
+server/logs/debug.log
 

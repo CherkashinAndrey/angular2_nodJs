@@ -19,8 +19,8 @@ import * as io from 'socket.io-client';
 export class ThumbnailComponent {
     thumbnails = [];
     sourcesSubscribe:any;
-    // private url = 'http://localhost:9128/';  
-    // private socket;
+    private url = 'http://localhost:9128/';  
+    private socket;
 
     constructor (private genderService: GenderService, 
                  private thumbnailService: ThumbnailService) {
@@ -61,6 +61,17 @@ export class ThumbnailComponent {
 
     ngOnInit(): void {
         this.getGender(); 
+        this.socket = io(this.url);
+        this.socket.on('testMessage', (data) => {
+            console.log(data);
+        });
+        this.socket.on('updatedThumbmail', (data) => {
+            // debugger
+            this.thumbnails.push(data);
+            console.log(this.thumbnails, this.thumbnailService);
+            //  this.changeSources([data]);
+            //  this._thumbnails.next([data]);    
+        });
 
         // this.socket = io(this.url);
         // console.log('socket', this.socket);

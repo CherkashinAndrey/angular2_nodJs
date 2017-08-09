@@ -28,13 +28,13 @@ export class ThumbnailService {
         // console.log(this.dataStore);
         this.thumbnails = this._thumbnails.asObservable();
 
-        this.socket = io(this.url);
-        console.log('socket', this.socket);
-        this.socket.on('updatedThumbmail', (data) => {
-            console.log(data);
-             this.changeSources([data]);
-            //  this._thumbnails.next([data]);    
-        });
+        // this.socket = io(this.url);
+        // console.log('socket', this.socket);
+        // this.socket.on('updatedThumbmail', (data) => {
+        //     console.log(data);
+        //      this.changeSources([data]);
+        //     //  this._thumbnails.next([data]);    
+        // });
     }   
 
     getThumbnail(): Promise<Gender[]> {
@@ -70,7 +70,6 @@ export class ThumbnailService {
     getSources():Observable< Gender[] > {
         return this.http.get(`http://localhost:9128/getitems`)
             .map(response => {
-                
                 console.log('<<<>>>>',response.json());
                  return response.json(); //.sources as Gender[];
             })
