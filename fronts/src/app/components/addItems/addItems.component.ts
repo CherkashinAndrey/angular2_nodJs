@@ -1,9 +1,11 @@
-import { Component } from "@angular/core";
+import { Component, ViewContainerRef, ViewEncapsulation } from "@angular/core";
 import { FormBuilder, Validators} from '@angular/forms';
 import { NgbModal, NgbActiveModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-
+import { Modal } from 'angular2-modal/plugins/bootstrap';
 import { ThumbnailService } from  './../../service/thumbnail.service';
 import { Gender } from './../../interface/gender.interface';
+
+import { AdditionCalculateWindow, AdditionCalculateWindowData } from './../../components/modal/thumbnailModal.component';
 
 @Component({
     selector: "addItem",
@@ -14,12 +16,18 @@ import { Gender } from './../../interface/gender.interface';
 
 
 export class AddItemsComponent {
-    constructor () {
-
+    constructor (vcRef: ViewContainerRef, public modal: Modal) {
+        // modal.defaultViewContainer = vcRef;
     }
     open() {
         
     }
+
+    openCustom() {
+        debugger
+        this.modal.open(AdditionCalculateWindow, new AdditionCalculateWindowData(2, 3));
+    }
+
 }
 
 

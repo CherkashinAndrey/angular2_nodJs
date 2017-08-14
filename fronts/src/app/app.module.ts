@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule }   from '@angular/router';
 import { HttpModule } from '@angular/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
  
 import { LogoModule } from './components/logo/logo.module';
 import { GenderModule } from './components/gender-link/gender-link.module';
@@ -12,6 +13,11 @@ import { CartModule } from './components/cart/cart.module';
 import { ContainerComponent } from './components/container/container.component';
 import { ThumbnailComponent } from './components/thumbnail/thumbnail.component';
 import { AddItemsComponent } from './components/addItems/addItems.component';
+
+import { ModalModule } from 'angular2-modal';
+import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
+
+import { AdditionCalculateWindow, AdditionCalculateWindowData } from './components/modal/thumbnailModal.component';
 
 import { HeroDetailComponent } from './hero-detail.component';
 import { HeroesComponent }     from './heroes.component';
@@ -33,6 +39,7 @@ import { AppComponent } from './app.component';
     AddItemsComponent,
     NgbdModalContentItem,
     NgbdModalComponentItem,
+    AdditionCalculateWindow,
   ],
   imports: [
     // angular modules
@@ -40,12 +47,14 @@ import { AppComponent } from './app.component';
     CommonModule,
     FormsModule,
     HttpModule,
-
+    ModalModule.forRoot(),
+    BootstrapModalModule,
     // Custom Modules
     LogoModule,
     GenderModule,
     loginModule,
     CartModule,
+    NgbModule.forRoot(),
     RouterModule.forRoot([
       {
         path: 'man',
@@ -57,7 +66,7 @@ import { AppComponent } from './app.component';
       }
     ]),
   ],
-  entryComponents: [NgbdModalContentItem],
+  entryComponents: [NgbdModalContentItem, NgbdModalComponentItem, AdditionCalculateWindow],
   exports: [
     NgbdModalContentItem,
     NgbdModalComponentItem,
