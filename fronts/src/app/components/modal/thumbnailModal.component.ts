@@ -56,7 +56,6 @@ export class AdditionCalculateWindow implements ModalComponent<AdditionCalculate
   public wrongAnswer: boolean;
 
   constructor(public dialog: DialogRef<AdditionCalculateWindowData>) {
-      debugger
     this.context = dialog.context;
     this.wrongAnswer = true;
   }

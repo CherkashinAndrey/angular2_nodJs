@@ -16,6 +16,7 @@ import { AddItemsComponent } from './components/addItems/addItems.component';
 
 import { ModalModule } from 'angular2-modal';
 import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
+import { DialogService } from "ng2-bootstrap-modal";
 
 import { AdditionCalculateWindow, AdditionCalculateWindowData } from './components/modal/thumbnailModal.component';
 
@@ -40,6 +41,7 @@ import { AppComponent } from './app.component';
     NgbdModalContentItem,
     NgbdModalComponentItem,
     AdditionCalculateWindow,
+    DialogService,
   ],
   imports: [
     // angular modules
@@ -70,6 +72,7 @@ import { AppComponent } from './app.component';
   exports: [
     NgbdModalContentItem,
     NgbdModalComponentItem,
+    DialogService,
   ],
   providers: [HeroService, GenderService, HttpModule, ThumbnailService],
   bootstrap: [AppComponent]

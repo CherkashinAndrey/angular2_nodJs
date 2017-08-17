@@ -5,7 +5,11 @@ import { Modal } from 'angular2-modal/plugins/bootstrap';
 import { ThumbnailService } from  './../../service/thumbnail.service';
 import { Gender } from './../../interface/gender.interface';
 
+import { DialogService } from "ng2-bootstrap-modal";
+
 import { AdditionCalculateWindow, AdditionCalculateWindowData } from './../../components/modal/thumbnailModal.component';
+import { ConfirmComponent } from './../../components/modal/confirm.component';
+
 
 @Component({
     selector: "addItem",
@@ -16,7 +20,9 @@ import { AdditionCalculateWindow, AdditionCalculateWindowData } from './../../co
 
 
 export class AddItemsComponent {
-    constructor (vcRef: ViewContainerRef, public modal: Modal) {
+    constructor (vcRef: ViewContainerRef, 
+                 public modal: Modal,
+                private dialogService:DialogService) {
         // modal.defaultViewContainer = vcRef;
     }
     open() {
@@ -24,8 +30,18 @@ export class AddItemsComponent {
     }
 
     openCustom() {
+        // this.modal.open(AdditionCalculateWindow, new AdditionCalculateWindowData(2, 3));
+    }
+
+    showPrompt() {
+    this.dialogService.addDialog(ConfirmComponent, {
+      title:'Name dialog',
+      message:'What is your name?: '})
+      .subscribe((message)=>{
+        //We get dialog result
         debugger
-        this.modal.open(AdditionCalculateWindow, new AdditionCalculateWindowData(2, 3));
+        //this.promptMessage = message;
+      });
     }
 
 }
